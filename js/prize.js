@@ -12,7 +12,7 @@ class Prizes{
 draw(){
     this.prizesArray.forEach((prize)=>
     {
-        this.ctx.fillStyle = "red"
+        this.ctx.fillStyle = "rgb(251,0,0)"
         this.ctx.fillRect(prize[0], prize[1], 40, 60)}
     )
 }
@@ -28,7 +28,7 @@ createRandomObjects(frameNumber){
 }
 
 removePrizes(frameNumber){
-    if (frameNumber % 180 === 0){
+    if (frameNumber % 200 === 0){
     this.prizesArray.shift()
 }}
 

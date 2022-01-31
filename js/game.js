@@ -32,6 +32,8 @@ start(){
     this.prizes.createRandomObjects(this.frameNumber)
     this.obstacles.createRandomObjects(this.frameNumber)
     this.draw()
+    this.player.checkCollisionDead()
+    //this.player.checkCollisionScoreUp()
     this.player.isOutOfCanvas()
     if (this.frameNumber !== null) {
         this.frameNumber = requestAnimationFrame(this.start.bind(this));
@@ -52,6 +54,18 @@ move(){
    
 }
 
+stop(){
+    cancelAnimationFrame(this.frameNumber) 
+    this.frameNumber = null
+}
+
+/*
+gameOver(){
+    if(this.player.checkCollisionDead()) this.stop
+}
+*/
+
+//checkCollisionScoreUp()
 
 }
 

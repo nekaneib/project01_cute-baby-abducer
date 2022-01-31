@@ -1,9 +1,9 @@
 class Player{
-    constructor(ctx){
+    constructor(ctx, width, height){
         this.ctx = ctx
       
-        this.width = 80
-        this.height = 80
+        this.width = width
+        this.height = height
 
         this.x = 100
         this.y = 100
@@ -14,7 +14,7 @@ class Player{
 
 draw(){
     this.ctx.fillStyle = 'black';
-    this.ctx.fillRect(this.x, this.y, 40, 40);
+    this.ctx.fillRect(this.x, this.y,  this.width, this.height);
 }
 
 move(){
@@ -38,6 +38,24 @@ isOutOfCanvas(){
         this.y = this.ctx.canvas.height - this.height;
         this.speedY = this.ctx.canvas.height - this.height
     }
+}
+
+checkCollisionDead(){
+    let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
+
+    for(let i = 0; i < playerCheck.data.length; i ++){
+      if(playerCheck.data[i] === 254) game.stop()
+    }
+    
+}
+
+checkCollisionScoreUp(){
+    let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
+
+    for(let i = 0; i < playerCheck.data.length; i ++){
+      if(playerCheck.data[i] === 251) return true 
+    }
+    
 }
 
 }

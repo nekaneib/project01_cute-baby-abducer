@@ -9,7 +9,7 @@ class Obstacles{
 draw(){
     this.obstaclesArray.forEach((obstacle)=>
     {
-        this.ctx.fillStyle = "blue"
+        this.ctx.fillStyle = "rgb(0,0,254)"
         this.ctx.fillRect(obstacle[0], obstacle[1], 30, 30)}
     )
 }
@@ -23,7 +23,7 @@ createRandomObjects(frameNumber){
     }
 }
 removeObjects(frameNumber){
-    if (frameNumber % 160 === 0){
+    if (frameNumber % 240 === 0){
     this.obstaclesArray.shift()
     }
 }

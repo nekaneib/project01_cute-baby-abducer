@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d")
 
-const player = new Player(ctx)
+const player = new Player(ctx, 40, 40)
 const prizes = new Prizes(ctx)
 const obstacles = new Obstacles(ctx)
 
