@@ -26,10 +26,11 @@ class Game{
         
     }
 
-
 start(){
     this.move()
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
+    this.prizes.createRandomObjects(this.frameNumber)
+    this.obstacles.createRandomObjects(this.frameNumber)
     this.draw()
     this.player.isOutOfCanvas()
     if (this.frameNumber !== null) {
@@ -40,14 +41,15 @@ start(){
 
 draw(){
     this.player.draw()
-    //this.prizes.draw()
-    //this.obstacles.draw()
+    this.prizes.draw(this.frameNumber)
+    this.obstacles.draw(this.frameNumber)
+    this.prizes.removePrizes(this.frameNumber)
+    this.obstacles.removeObjects(this.frameNumber)
 }
 
 move(){
     this.player.move()
-    //this.prizes.move()
-    //this.obstacles.move()
+   
 }
 
 
