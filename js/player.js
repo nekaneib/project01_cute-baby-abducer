@@ -44,7 +44,7 @@ checkCollisionDead(){
     let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
 
     for(let i = 0; i < playerCheck.data.length; i ++){
-      if(playerCheck.data[i] === 254) game.stop()
+      if(playerCheck.data[i] === 254) game.gameOver()
     }
     
 }

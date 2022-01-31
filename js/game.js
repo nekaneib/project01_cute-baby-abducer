@@ -32,7 +32,7 @@ start(){
     this.prizes.createRandomObjects(this.frameNumber)
     this.obstacles.createRandomObjects(this.frameNumber)
     this.draw()
-    this.player.checkCollisionDead()
+    if (this.player.checkCollisionDead()) this.gameOver();
     //this.player.checkCollisionScoreUp()
     this.player.isOutOfCanvas()
     if (this.frameNumber !== null) {
@@ -59,11 +59,21 @@ stop(){
     this.frameNumber = null
 }
 
-/*
-gameOver(){
-    if(this.player.checkCollisionDead()) this.stop
-}
-*/
+gameOver() {
+    this.stop();
+    this.ctx.save();
+    this.ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
+    this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    this.ctx.fillStyle = "white";
+    this.ctx.textAlign = "center";
+    this.ctx.font = "bold 32px sans-serif";
+    this.ctx.fillText(
+      "Game Over",
+      this.ctx.canvas.width / 2,
+      this.ctx.canvas.height / 2
+    );
+    this.ctx.restore();
+  }
 
 //checkCollisionScoreUp()
 
