@@ -22,31 +22,31 @@ class Game{
             this.player.speedX += 8;
             break;
         }
-        })
+    })
         
-    }
+}
 
 start(){
-    this.move()
-    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
+    this.prizes.removePrizes(this.frameNumber)
+    this.obstacles.removeObjects(this.frameNumber)
     this.prizes.createRandomObjects(this.frameNumber)
     this.obstacles.createRandomObjects(this.frameNumber)
+    this.move()
     this.draw()
     if (this.player.checkCollisionDead()) this.gameOver();
-    this.player.checkCollisionScoreUp()
+    this.score += this.player.checkCollisionScoreUp()
     this.player.isOutOfCanvas()
     if (this.frameNumber !== null) {
         this.frameNumber = requestAnimationFrame(this.start.bind(this));
-      }
-   
+    }
+        
 }
-
+    
 draw(){
+    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
     this.player.draw()
     this.prizes.draw(this.frameNumber)
     this.obstacles.draw(this.frameNumber)
-    this.prizes.removePrizes(this.frameNumber)
-    this.obstacles.removeObjects(this.frameNumber)
     this.drawScore()
 }
 
@@ -71,7 +71,7 @@ stop(){
 gameOver() {
     this.stop();
     this.ctx.save();
-    this.ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
+    this.ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.ctx.fillStyle = "white";
     this.ctx.textAlign = "center";
