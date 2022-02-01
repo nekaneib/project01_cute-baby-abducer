@@ -1,9 +1,10 @@
 class Player{
-    constructor(ctx, width, height){
+    constructor(ctx, width, height, prizes){
         this.ctx = ctx
       
         this.width = width
         this.height = height
+        this.prizes = prizes
 
         this.x = 100
         this.y = 100
@@ -53,9 +54,24 @@ checkCollisionScoreUp(){
     let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
 
     for(let i = 0; i < playerCheck.data.length; i ++){
-      if(playerCheck.data[i] === 251) return + 1
+      if(playerCheck.data[i] === 251) return + 1; 
     } return 0
 }
+
+checkCollisionFilter(){
+    let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
+        this.prizes.prizesArray.forEach((element, index) => {
+            let distanceX = (element[0]) - (this.x)
+            let distanceY = (element[1]) - (this.y)
+    
+        if((distanceX < 40 && distanceX > -40) && (distanceY < 40 && distanceY > -40) ) {
+            console.log("X",distanceX) 
+            this.prizes.prizesArray.splice(index, 1)
+        } 
+        
+    });
+}
+
 
 }
 

@@ -7,22 +7,36 @@ class Game{
         this.frameNumber = 0;
         this.score = 0;
 
+
+    document.addEventListener("mousemove",
+        (event)=>{
+            
+        })
+    // window.addEventListener(
+    //     "mousemove",
+    //     (event)=>{
+    //             player.x = event.clientX;
+    //             player.y = event.clientY;
+    //             console.log("event: ", event.clientX, event.clientY);
+    //             console.log("player: ", player.x, player.y);
+    //             }
+    //         )
     document.addEventListener('keydown', (e) => {
-        switch (e.keyCode) {
-            case 38: // up arrow
-            this.player.speedY -= 8;
-            break;
-            case 40: // down arrow
-            this.player.speedY += 8;
-            break;
-            case 37: // left arrow
-            this.player.speedX -= 8;
-            break;
-            case 39: // right arrow
-            this.player.speedX += 8;
-            break;
+    switch (e.keyCode) {
+             case 38: // up arrow
+             this.player.speedY -= 8;
+             break;
+             case 40: // down arrow
+             this.player.speedY += 8;
+             break;
+             case 37: // left arrow
+             this.player.speedX -= 8;
+             break;
+             case 39: // right arrow
+             this.player.speedX += 8;
+             break;
         }
-    })
+     })
         
 }
 
@@ -31,6 +45,7 @@ start(){
     this.obstacles.removeObjects(this.frameNumber)
     this.prizes.createRandomObjects(this.frameNumber)
     this.obstacles.createRandomObjects(this.frameNumber)
+    this.player.checkCollisionFilter()
     this.move()
     this.draw()
     if (this.player.checkCollisionDead()) this.gameOver();
@@ -84,7 +99,7 @@ gameOver() {
     this.ctx.restore();
   }
 
-//checkCollisionScoreUp()
+
 
 }
 
