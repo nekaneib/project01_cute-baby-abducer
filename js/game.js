@@ -38,7 +38,8 @@ start(){
     this.move()
     this.draw()
     if (this.player.checkCollisionDead()) this.gameOver();
-    this.score += this.player.checkCollisionScoreUp()
+    this.score += this.player.checkCollisionScoreUp() 
+    console.log(this.score)
     //this.player.isOutOfCanvas()
     if (this.frameNumber !== null) {
         this.frameNumber = requestAnimationFrame(this.start.bind(this));
@@ -74,7 +75,7 @@ stop(){
 
 gameOver() {
     this.stop();
-    this.ctx.save();
+    //this.ctx.save();
     this.ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.ctx.fillStyle = "white";
@@ -85,7 +86,7 @@ gameOver() {
       this.ctx.canvas.width / 2,
       this.ctx.canvas.height / 2
     );
-    this.ctx.restore();
+    //this.ctx.restore();
   }
 
 

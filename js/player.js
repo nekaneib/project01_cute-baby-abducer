@@ -51,12 +51,26 @@ checkCollisionDead(){
 }
 
 checkCollisionScoreUp(){
-    let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
+//      let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
+//      for(let i = 0; i < playerCheck.data.length; i ++){
+//        if(playerCheck.data[i] === 251) 
+//            console.log("SCORE"); 
+//            return + 1
+//      } return 0
+//  }
 
-    for(let i = 0; i < playerCheck.data.length; i ++){
-      if(playerCheck.data[i] === 251) return + 1; 
-    } return 0
-}
+ let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
+         this.prizes.prizesArray.forEach((element, index) => {
+             let distanceX = (element[0]) - (this.x)
+             let distanceY = (element[1]) - (this.y)
+
+         if((distanceX < 40 && distanceX > -40) && (distanceY < 40 && distanceY > -40) ) {
+             return game.score +1
+         } 
+        
+     });
+ }
+
 
 checkCollisionFilter(){
     let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
@@ -65,7 +79,6 @@ checkCollisionFilter(){
             let distanceY = (element[1]) - (this.y)
     
         if((distanceX < 40 && distanceX > -40) && (distanceY < 40 && distanceY > -40) ) {
-            console.log("X",distanceX) 
             this.prizes.prizesArray.splice(index, 1)
         } 
         

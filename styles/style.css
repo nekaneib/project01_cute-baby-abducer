@@ -3,11 +3,38 @@ canvas{
     color: red;
 }
 
+
+
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 h1{
-    font-size: 40px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    text-align: center;
+    font-size: 80px;
 }
 
-body{
+button{
+    /* display: flex;
+    flex-direction: column;*/
+    justify-content: center;
+    text-align: center;
+    font-size: 40px;   
+}
+
+/* canvas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 350px;
+    padding: 0px;
+}  */
+
+/* body{
     margin: 0px;
     padding: 0px;
-}
+} */
