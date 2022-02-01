@@ -53,9 +53,11 @@ checkCollisionScoreUp(){
     let playerCheck = this.ctx.getImageData(this.x, this.y,  this.width, this.height)
 
     for(let i = 0; i < playerCheck.data.length; i ++){
-      if(playerCheck.data[i] === 251) return true 
+      if(playerCheck.data[i] === 251) game.score +=1
+          //for(let j = 0; j < prizes.prizesArray.length; j++){
+          //}
+          //{ game.score +=1
     }
-    
 }
 
 }

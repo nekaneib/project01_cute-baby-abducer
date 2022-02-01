@@ -33,7 +33,7 @@ start(){
     this.obstacles.createRandomObjects(this.frameNumber)
     this.draw()
     if (this.player.checkCollisionDead()) this.gameOver();
-    //this.player.checkCollisionScoreUp()
+    this.player.checkCollisionScoreUp()
     this.player.isOutOfCanvas()
     if (this.frameNumber !== null) {
         this.frameNumber = requestAnimationFrame(this.start.bind(this));
@@ -47,11 +47,20 @@ draw(){
     this.obstacles.draw(this.frameNumber)
     this.prizes.removePrizes(this.frameNumber)
     this.obstacles.removeObjects(this.frameNumber)
+    this.drawScore()
 }
 
 move(){
     this.player.move()
    
+}
+
+drawScore(){
+    this.ctx.save();
+    this.ctx.fillStyle = "black";
+    this.ctx.font = " bold 24px sans-serif";
+    this.ctx.fillText(`Score: ${this.score} pts`, 20, 40);
+    this.ctx.restore();
 }
 
 stop(){

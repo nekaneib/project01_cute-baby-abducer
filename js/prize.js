@@ -9,11 +9,12 @@ class Prizes{
     }
 
 
-draw(){
+draw(frameNumber){
     this.prizesArray.forEach((prize)=>
     {
         this.ctx.fillStyle = "rgb(251,0,0)"
-        this.ctx.fillRect(prize[0], prize[1], 40, 60)}
+        this.ctx.fillRect(prize[0], prize[1], 40, 50)
+    }
     )
 }
 
@@ -23,7 +24,6 @@ createRandomObjects(frameNumber){
     let randomPositionY = Math.floor(Math.random() * this.ctx.canvas.height)
     let object = [randomPositionX, randomPositionY]
         this.prizesArray.push(object)
-        
     }
 }
 
