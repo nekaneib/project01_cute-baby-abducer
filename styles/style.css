@@ -1,40 +1,28 @@
-canvas{
-    border: 1px solid black;
-    color: red;
+
+
+.generalContainer{
+    position: relative;
 }
 
+.startPage{
+    position: absolute;
+    width: 600px;
+    height: 600px
+}
 
+.game{
+    position: absolute;
+}
 
-div{
+canvas{
+    cursor: none;
+}
+
+/*
+button{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-h1{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-    text-align: center;
-    font-size: 80px;
-}
-
-button{
-    /* display: flex;
-    flex-direction: column;*/
     justify-content: center;
     text-align: center;
     font-size: 40px;   
-}
-
-/* canvas{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 350px;
-    padding: 0px;
-}  */
-
-/* body{
-    margin: 0px;
-    padding: 0px;
-} */
+}*/

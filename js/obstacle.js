@@ -2,20 +2,38 @@ class Obstacles{
     constructor(ctx){
         this.ctx = ctx
         this.obstaclesArray = []
-        this.x = 800
-        this.y = 200
+        this.x = 320
+        this.y = 154
+
+        this.width = 80
+        this.height = 80
+
+        this.img = new Image()
+        this.img.src="images/cute-obstacle.png"        
     }
 
 draw(){
-    this.obstaclesArray.forEach((obstacle)=>
+    this.obstaclesArray.forEach((prize)=>
     {
-        this.ctx.fillStyle = "rgb(0,0,254)"
-        this.ctx.fillRect(obstacle[0], obstacle[1], 30, 30)}
+        this.ctx.drawImage(
+            this.img,
+            prize[0],
+            prize[1],
+            this.width,
+            this.height
+            )
+    }
     )
 }
+    //  this.obstaclesArray.forEach((obstacle)=>
+    //  {
+    //      this.ctx.fillStyle = "rgb(0,0,254)"
+    //      this.ctx.fillRect(obstacle[0], obstacle[1], 30, 30)}
+    //  )
+
 
 createRandomObjects(frameNumber){
-    if (frameNumber % 120 === 0){
+    if (frameNumber % 100 === 0){
     let randomPositionX = Math.floor(Math.random() * this.ctx.canvas.width)
     let randomPositionY = Math.floor(Math.random() * this.ctx.canvas.height)
     let object = [randomPositionX, randomPositionY]
@@ -23,7 +41,7 @@ createRandomObjects(frameNumber){
     }
 }
 removeObjects(frameNumber){
-    if (frameNumber % 240 === 0){
+    if (frameNumber % 200 === 0){
     this.obstaclesArray.shift()
     }
 }

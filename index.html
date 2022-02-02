@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whack a Mole!</title>
+    <title>Baby abducer</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <div>
-        <h1>Whack a mole!</h1>
-        <button id="start-button">StartGame</button>
+    
+    <div class="generalContainer">
+        <div id="startPage">
+            <h1>Baby abducer</h1>
+            <button id="start-button">StartGame</button>
+        </div>
+        <div id="game" class="hidden">
+            <canvas id="canvas"></canvas>
+        </div>
     </div>
 
-    <canvas z-index='999' id="canvas" width="1200" height="800" style= "cursor:none"></canvas>
-
+    <script src="js/background.js"></script>
     <script src="js/obstacle.js"></script>
     <script src="js/prize.js"></script>
-    <script src="js/game.js"></script>
     <script src="js/player.js"></script>
+    <script src="js/game.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

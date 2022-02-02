@@ -1,11 +1,12 @@
 class Game{
-    constructor(ctx, player, prize, obstacles){
+    constructor(ctx, player, prize, obstacles, background){
         this.ctx = ctx;
         this.player = player;
         this.prizes = prize;
         this.obstacles = obstacles;
+        this.background = background
         this.frameNumber = 0;
-        this.score = 0;
+        this.score = this.player.score;
 
 
     
@@ -34,12 +35,11 @@ start(){
     this.obstacles.removeObjects(this.frameNumber)
     this.prizes.createRandomObjects(this.frameNumber)
     this.obstacles.createRandomObjects(this.frameNumber)
-    this.player.checkCollisionFilter()
+    this.player.checkCollisionPrize()
     this.move()
     this.draw()
     if (this.player.checkCollisionDead()) this.gameOver();
-    this.score += this.player.checkCollisionScoreUp() 
-    console.log(this.score)
+    
     //this.player.isOutOfCanvas()
     if (this.frameNumber !== null) {
         this.frameNumber = requestAnimationFrame(this.start.bind(this));
@@ -49,6 +49,7 @@ start(){
     
 draw(){
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
+    this.background.draw()
     this.player.draw()
     this.prizes.draw(this.frameNumber)
     this.obstacles.draw(this.frameNumber)
@@ -64,7 +65,7 @@ drawScore(){
     this.ctx.save();
     this.ctx.fillStyle = "black";
     this.ctx.font = " bold 24px sans-serif";
-    this.ctx.fillText(`Score: ${this.score} pts`, 20, 40);
+    this.ctx.fillText(`Score: ${this.player.score} pts`, 20, 40);
     this.ctx.restore();
 }
 
@@ -80,14 +81,23 @@ gameOver() {
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.ctx.fillStyle = "white";
     this.ctx.textAlign = "center";
-    this.ctx.font = "bold 32px sans-serif";
+    this.ctx.font = "bold 62px sans-serif";
+     this.ctx.fillText(
+       `Well done!`,
+       this.ctx.canvas.width / 2,
+       this.ctx.canvas.height / 2,
+     )
+
+    this.ctx.font = "bold 32px sans-serif"
     this.ctx.fillText(
-      "Game Over",
+      `You have abducted ${this.player.score} babies`,
       this.ctx.canvas.width / 2,
-      this.ctx.canvas.height / 2
-    );
+      (this.ctx.canvas.height / 2) + 54,
+    )
     //this.ctx.restore();
   }
+
+
 
 
 }
