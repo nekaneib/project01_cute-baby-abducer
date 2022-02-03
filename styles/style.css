@@ -1,6 +1,6 @@
 @font-face {
     font-family: cutefont;
-    src: url("./styles/fonts/cute-melody.regular.otf");
+    src: url("/fonts/cute-melody.regular.otf");
 }
 
 body{
