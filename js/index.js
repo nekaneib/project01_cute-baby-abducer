@@ -21,6 +21,7 @@ const playAgainButton = document.getElementById("playAgain-button");
 
 
 
+
   startButton.onclick = ()=> {
     //startButton.textContent = "Play Again";
     
@@ -41,7 +42,7 @@ const playAgainButton = document.getElementById("playAgain-button");
   this.canvas.addEventListener(
       "mousemove",
       (event)=>{
-              player.x = event.clientX - canvasX - (player.width/2) - 180;
-              player.y = event.clientY - canvasY - (player.height/2);
+          player.x = event.clientX - canvasX - (player.width/2) - 180;
+          player.y = event.clientY - canvasY - (player.height/2);
               }
           )

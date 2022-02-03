@@ -53,7 +53,7 @@ start(){
     this.prizes.createRandomObjects(this.frameNumber)
     this.obstacles.createRandomObjects(this.frameNumber)
     this.player.checkCollisionPrize()
-    this.move()
+   // this.move()
     this.draw()
     if (this.player.checkCollisionDead()) this.gameOver();
     
@@ -73,10 +73,9 @@ draw(){
     this.drawScore()
 }
 
-move(){
-    //this.player.move()
+// move(){
    
-}
+// }
 
 drawScore(){
     this.ctx.save();
