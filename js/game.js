@@ -48,6 +48,7 @@ init(){
 }
 
 start(){
+    soundBackground.play()
     this.prizes.removePrizes(this.frameNumber)
     this.obstacles.removeObjects(this.frameNumber)
     this.prizes.createRandomObjects(this.frameNumber)
@@ -88,10 +89,12 @@ drawScore(){
 stop(){
     cancelAnimationFrame(this.frameNumber) 
     this.frameNumber = null
+    soundBackground.pause()
 }
 
 gameOver() {
     this.stop();
+    soundGameOver.play()
     this.ctx.save();
     this.ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);

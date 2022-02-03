@@ -19,6 +19,10 @@ const startPage =  document.getElementById("startPage");
 const gameBoard =  document.getElementById("game");
 const playAgainButton = document.getElementById("playAgain-button");
 
+const soundBackground = new Audio("sounds/backgroundSound.wav")
+const soundAbsorb = new Audio("sounds/getIitem.wav")
+const soundGameOver = new Audio("sounds/gameOver.wav")
+
 
 
 

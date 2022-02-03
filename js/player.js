@@ -77,7 +77,7 @@ checkCollisionPrize(){
         if((distanceX < 55 && distanceX > -55) && (distanceY < 55 && distanceY > -55) ) {
             this.prizes.prizesArray.splice(index, 1)
             this.score += 1
-            console.log("Score", this.score)
+            soundAbsorb.play()
         } 
     });
 }
