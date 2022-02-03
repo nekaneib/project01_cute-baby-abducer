@@ -81,6 +81,7 @@ p{
 }
 
 canvas{
+    border: 3px solid whitesmoke;
     cursor: none;
 }
 
