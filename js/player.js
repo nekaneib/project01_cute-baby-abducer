@@ -2,8 +2,8 @@ class Player{
     constructor(ctx, prizes){
         this.ctx = ctx
       
-        this.width = 90
-        this.height = 90
+        this.width = 100
+        this.height = 100
         this.prizes = prizes
         this.obstacles = obstacles
         this.score = 0
@@ -14,9 +14,14 @@ class Player{
         this.img = new Image()
         this.img.src="images/cute-alien.png"
 
-        this.speedX = 200;
-        this.speedY = 400
     }
+
+init(){
+    this.score = 0
+    this.x = 100
+    this.y = 100
+
+}
 
 draw(){
     this.ctx.drawImage(
@@ -30,7 +35,7 @@ draw(){
 
 move(){
     // this.x += this.speedX
-    // this.y += this.speedY
+    // this.y += this.Y
     //this.isOutOfCanvas()
 }
 

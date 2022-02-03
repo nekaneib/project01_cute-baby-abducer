@@ -7,10 +7,12 @@ class Game{
         this.background = background
         this.frameNumber = 0;
         this.score = this.player.score;
+        this.playAgainButton = document.getElementById("playAgain-button");
 
 
     
-     
+    //----------- Listener para las teclas de flecha---------------
+
     // document.addEventListener('keydown', (e) => {
     // switch (e.keyCode) {
     //          case 38: // up arrow
@@ -28,6 +30,21 @@ class Game{
     //     }
     //  })
         
+}
+
+startGame(){
+    this.init()
+    this.start()
+}
+
+init(){
+    this.frameNumber = 0;
+    this.score = this.player.score;
+    this.player.init()
+    this.background.init()
+    this.prizes.init()
+    this.obstacles.init()
+    this.ctx.canvas.style.cursor = "none"
 }
 
 start(){
@@ -57,14 +74,14 @@ draw(){
 }
 
 move(){
-    this.player.move()
+    //this.player.move()
    
 }
 
 drawScore(){
     this.ctx.save();
     this.ctx.fillStyle = "black";
-    this.ctx.font = " bold 24px sans-serif";
+    this.ctx.font = " bold 24px cutefont";
     this.ctx.fillText(`Score: ${this.player.score} pts`, 20, 40);
     this.ctx.restore();
 }
@@ -76,29 +93,30 @@ stop(){
 
 gameOver() {
     this.stop();
-    //this.ctx.save();
+    this.ctx.save();
     this.ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+
     this.ctx.fillStyle = "white";
     this.ctx.textAlign = "center";
-    this.ctx.font = "bold 62px sans-serif";
+    this.ctx.font = "normal 62px cutefont";
      this.ctx.fillText(
        `Well done!`,
        this.ctx.canvas.width / 2,
        this.ctx.canvas.height / 2,
      )
-
-    this.ctx.font = "bold 32px sans-serif"
+    this.ctx.font = "normal 25px sans-serif"
     this.ctx.fillText(
       `You have abducted ${this.player.score} babies`,
       this.ctx.canvas.width / 2,
-      (this.ctx.canvas.height / 2) + 54,
+      (this.ctx.canvas.height / 2) + 70,
     )
-    //this.ctx.restore();
+
+    this.ctx.restore();
+    this.ctx.canvas.style.cursor = "auto"
+    this.playAgainButton.classList.toggle("hidden");
+    
   }
-
-
-
 
 }
 

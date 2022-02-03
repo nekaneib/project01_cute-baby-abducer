@@ -14,6 +14,11 @@ class Prizes{
         this.img.src="images/baby-prize.png"
     }
 
+init(){
+    this.prizesArray = []
+    this.x = 800
+    this.y = 200
+}
 
 draw(frameNumber){
     this.prizesArray.forEach((prize)=>

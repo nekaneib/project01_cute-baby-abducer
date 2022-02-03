@@ -5,12 +5,18 @@ class Obstacles{
         this.x = 320
         this.y = 154
 
-        this.width = 80
-        this.height = 80
+        this.width = 90
+        this.height = 90
 
         this.img = new Image()
         this.img.src="images/cute-obstacle.png"        
     }
+
+init(){
+    this.obstaclesArray = []
+    this.x = 320
+    this.y = 154
+}
 
 draw(){
     this.obstaclesArray.forEach((prize)=>

@@ -1,8 +1,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d")
 
-canvas.width = 800;
-canvas.height = 600;
+canvas.width = 900;
+canvas.height = 550;
 
 const background = new Background(ctx)
 const prizes = new Prizes(ctx)
@@ -17,22 +17,31 @@ const canvasY = canvas.getBoundingClientRect().top;
 const startButton =  document.getElementById("start-button")
 const startPage =  document.getElementById("startPage");
 const gameBoard =  document.getElementById("game");
+const playAgainButton = document.getElementById("playAgain-button");
 
 
 
   startButton.onclick = ()=> {
-    startButton.textContent = "Play Again";
+    //startButton.textContent = "Play Again";
+    
+    startPage.classList.toggle("hidden");
+    gameBoard.classList.toggle("hidden");
     canvas.focus();
-    startPage.classList.toggle("hidden")
-    gameBoard.classList.toggle("hidden")
-    game.start();
+    game.startGame();
   };
   
   
+  playAgainButton.onclick = ()=> {
+    playAgainButton.classList.toggle("hidden");
+    canvas.focus();
+    game.startGame();
+  };
+  
+
   this.canvas.addEventListener(
       "mousemove",
       (event)=>{
-              player.x = event.clientX - canvasX - (player.width/2);
+              player.x = event.clientX - canvasX - (player.width/2) - 180;
               player.y = event.clientY - canvasY - (player.height/2);
               }
           )

@@ -13,6 +13,11 @@ class Background{
     this.background.img.src = "images/background2.jpg";
     }
 
+init(){
+    this.background.x = 0
+    this.background.y = 0
+}
+
 draw(){
     this.ctx.drawImage(
         this.background.img,
