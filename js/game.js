@@ -48,12 +48,13 @@ init(){
 }
 
 start(){
+    soundBackground.play()
     this.prizes.removePrizes(this.frameNumber)
     this.obstacles.removeObjects(this.frameNumber)
     this.prizes.createRandomObjects(this.frameNumber)
     this.obstacles.createRandomObjects(this.frameNumber)
     this.player.checkCollisionPrize()
-    this.move()
+   // this.move()
     this.draw()
     if (this.player.checkCollisionDead()) this.gameOver();
     
@@ -73,10 +74,9 @@ draw(){
     this.drawScore()
 }
 
-move(){
-    //this.player.move()
+// move(){
    
-}
+// }
 
 drawScore(){
     this.ctx.save();
@@ -89,10 +89,12 @@ drawScore(){
 stop(){
     cancelAnimationFrame(this.frameNumber) 
     this.frameNumber = null
+    soundBackground.pause()
 }
 
 gameOver() {
     this.stop();
+    soundGameOver.play()
     this.ctx.save();
     this.ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);

@@ -19,6 +19,11 @@ const startPage =  document.getElementById("startPage");
 const gameBoard =  document.getElementById("game");
 const playAgainButton = document.getElementById("playAgain-button");
 
+const soundBackground = new Audio("sounds/backgroundSound.wav")
+const soundAbsorb = new Audio("sounds/getIitem.wav")
+const soundGameOver = new Audio("sounds/gameOver.wav")
+
+
 
 
   startButton.onclick = ()=> {
@@ -41,7 +46,7 @@ const playAgainButton = document.getElementById("playAgain-button");
   this.canvas.addEventListener(
       "mousemove",
       (event)=>{
-              player.x = event.clientX - canvasX - (player.width/2) - 180;
-              player.y = event.clientY - canvasY - (player.height/2);
+          player.x = event.clientX - canvasX - (player.width/2) - 180;
+          player.y = event.clientY - canvasY - (player.height/2);
               }
           )

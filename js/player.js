@@ -33,11 +33,12 @@ draw(){
     )
 }
 
-move(){
-    // this.x += this.speedX
-    // this.y += this.Y
-    //this.isOutOfCanvas()
-}
+// move(){
+    
+//     // player.x = event.clientX - canvasX - (player.width/2) - 180;
+//     // player.y = event.clientY - canvasY - (player.height/2);
+//     //this.isOutOfCanvas()
+// }
 
 
 //  isOutOfCanvas(){
@@ -76,7 +77,7 @@ checkCollisionPrize(){
         if((distanceX < 55 && distanceX > -55) && (distanceY < 55 && distanceY > -55) ) {
             this.prizes.prizesArray.splice(index, 1)
             this.score += 1
-            console.log("Score", this.score)
+            soundAbsorb.play()
         } 
     });
 }
